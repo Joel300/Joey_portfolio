@@ -147,15 +147,15 @@
             <div class="container glass-card contact-card">
                 <h2>Let's connect</h2>
                 <p>Have an exciting project in mind? Let's build something amazing together.</p>
-                <form class="contact-form">
+                <form action="https://formspree.io/f/Joelws300@gmail.com" method="POST" class="contact-form" id="contact-form">
                     <div class="input-group">
-                        <input type="text" id="name" required placeholder="Your Name">
+                        <input type="text" name="name" id="name" required placeholder="Your Name">
                     </div>
                     <div class="input-group">
-                        <input type="email" id="email" required placeholder="Your Email">
+                        <input type="email" name="email" id="email" required placeholder="Your Email">
                     </div>
                     <div class="input-group">
-                        <textarea id="message" rows="5" required placeholder="Your Message"></textarea>
+                        <textarea name="message" id="message" rows="5" required placeholder="Your Message"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                 </form>
