@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Joel Dabankah Owusu's Professional Portfolio. Showcasing aesthetic and dynamic web designs.">
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io https://api.github.com;">
     <title>Joel Dabankah Owusu | Professional Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image glass-card">
-                        <img src="images/avatar.png" alt="Joey's Avatar" class="avatar">
+                        <img src="images/joel-headshot.png" alt="Portrait of Joel Dabankah Owusu" class="avatar">
                     </div>
                     <div class="about-text">
                         <h2>About Me</h2>
@@ -118,40 +118,10 @@
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio section-reveal">
             <div class="container">
-                <h2>Featured Work</h2>
-                <p class="section-intro section-center">Selected concepts and products crafted with design precision.</p>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item glass-card">
-                        <div class="portfolio-img-wrapper">
-                            <img src="images/project_1.png" alt="Analytics Dashboard">
-                            <div class="portfolio-overlay">
-                                <h3>Quantum Analytics</h3>
-                                <p>UI/UX & Frontend</p>
-                                <a href="#" class="btn btn-secondary">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item glass-card">
-                        <div class="portfolio-img-wrapper">
-                            <img src="images/project_2.png" alt="E-commerce App">
-                            <div class="portfolio-overlay">
-                                <h3>Vivid Living E-Commerce</h3>
-                                <p>Full-Stack Development</p>
-                                <a href="#" class="btn btn-secondary" rel="noopener noreferrer">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item glass-card">
-                        <div class="portfolio-img-wrapper">
-                            <img src="images/project_3.png" alt="Photography Portfolio">
-                            <div class="portfolio-overlay">
-                                <h3>Aurora Gallery</h3>
-                                <p>Creative Web App</p>
-                                <a href="#" class="btn btn-secondary" rel="noopener noreferrer">View Case Study</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h2>GitHub Projects</h2>
+                <p class="section-intro section-center">Live repositories from my GitHub account.</p>
+                <p id="github-projects-status" class="github-projects-status section-center">Loading projects...</p>
+                <div class="portfolio-grid" id="github-projects" aria-live="polite"></div>
             </div>
         </section>
 
@@ -184,9 +154,12 @@
 
     <!-- AI Chatbot UI -->
     <div id="ai-chat-container">
-        <button id="chat-toggle" class="glass-card" aria-label="Toggle AI Chat">
-            <span class="chat-icon">✨</span>
-            <span class="chat-badge">AI</span>
+        <div id="chat-preview" class="chat-preview" role="status" aria-live="polite">
+            Hi, I'm your AI Assistant 👋<br>
+            How may I help you today?
+        </div>
+        <button id="chat-toggle" aria-label="Toggle AI Chat" title="Chat with AI assistant">
+            <span class="chat-toggle-text">AI</span>
         </button>
         <div id="chat-window" class="glass-card hidden">
             <div class="chat-header">
@@ -213,7 +186,7 @@
         </div>
     </div>
 
-    <script src="js/app.js?v=20260428"></script>
+    <script src="js/app.js?v=20260429"></script>
     <script src="js/chat.js"></script>
 </body>
 </html>

@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatToggle = document.getElementById('chat-toggle');
     const chatClose = document.getElementById('chat-close');
     const chatWindow = document.getElementById('chat-window');
+    const chatPreview = document.getElementById('chat-preview');
     const chatMessages = document.getElementById('chat-messages');
     const chatForm = document.getElementById('chat-input-area');
     const chatInput = document.getElementById('chat-input');
@@ -45,12 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
     chatToggle.addEventListener('click', () => {
         chatWindow.classList.toggle('hidden');
         if (!chatWindow.classList.contains('hidden')) {
+            if (chatPreview) chatPreview.style.display = 'none';
             chatInput.focus();
         }
     });
 
     chatClose.addEventListener('click', () => {
         chatWindow.classList.add('hidden');
+        if (chatPreview) chatPreview.style.display = 'block';
     });
 
     // 2. Handle Message Sending

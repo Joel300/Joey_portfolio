@@ -53,12 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger once on load
     revealOnScroll();
 
-    // 4. Theme Toggle + persistence
+    // 4. Theme toggle + time-based default
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const getInitialTheme = () => {
-        const savedTheme = localStorage.getItem('siteTheme');
-        if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    const getThemeByTime = () => {
+        const hour = new Date().getHours();
+        return (hour >= 18 || hour < 6) ? 'dark' : 'light';
     };
 
     const applyTheme = (theme) => {
@@ -71,13 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    applyTheme(getInitialTheme());
+    applyTheme(getThemeByTime());
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             const nextTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
             applyTheme(nextTheme);
-            localStorage.setItem('siteTheme', nextTheme);
         });
     }
 
@@ -141,10 +139,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
         countItems.forEach((item) => observer.observe(item));
     }
+
+    // 8. Load GitHub repositories
+    const projectsContainer = document.getElementById('github-projects');
+    const projectsStatus = document.getElementById('github-projects-status');
+
+    const createMetaTag = (text) => {
+        const tag = document.createElement('span');
+        tag.className = 'repo-tag';
+        tag.textContent = text;
+        return tag;
+    };
+
+    const createRepoCard = (repo) => {
+        const card = document.createElement('article');
+        card.className = 'repo-card glass-card';
+
+        const title = document.createElement('h3');
+        title.textContent = repo.name;
+
+        const description = document.createElement('p');
+        description.className = 'repo-description';
+        description.textContent = repo.description || 'No description provided.';
+
+        const meta = document.createElement('div');
+        meta.className = 'repo-meta';
+        if (repo.language) {
+            meta.appendChild(createMetaTag(repo.language));
+        }
+        meta.appendChild(createMetaTag(`★ ${repo.stargazers_count}`));
+        meta.appendChild(createMetaTag(`Updated ${new Date(repo.updated_at).toLocaleDateString()}`));
+
+        const link = document.createElement('a');
+        link.className = 'btn btn-secondary';
+        link.href = repo.html_url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'View Repository';
+
+        card.append(title, description, meta, link);
+        return card;
+    };
+
+    const loadGitHubProjects = async () => {
+        if (!projectsContainer || !projectsStatus) return;
+
+        try {
+            const response = await fetch('https://api.github.com/users/Joel300/repos?per_page=100&sort=updated');
+            if (!response.ok) {
+                throw new Error('Unable to load repositories.');
+            }
+
+            const repos = await response.json();
+            const ownRepos = repos
+                .filter((repo) => repo.owner && repo.owner.login === 'Joel300' && !repo.fork)
+                .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+            projectsContainer.innerHTML = '';
+
+            if (!ownRepos.length) {
+                projectsStatus.textContent = 'No public repositories found yet.';
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+            ownRepos.forEach((repo) => {
+                fragment.appendChild(createRepoCard(repo));
+            });
+            projectsContainer.appendChild(fragment);
+            projectsStatus.textContent = `Showing ${ownRepos.length} GitHub project${ownRepos.length > 1 ? 's' : ''}.`;
+        } catch (error) {
+            projectsStatus.textContent = 'Could not load GitHub projects right now. Please try again later.';
+        }
+    };
+
+    loadGitHubProjects();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 8. Form Submission Handling
+    // 9. Form Submission Handling
     const contactForm = document.getElementById('contact-form');
     
     if (contactForm) {

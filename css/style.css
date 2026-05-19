@@ -514,6 +514,44 @@ section:not(.hero)::before {
     margin-bottom: 1rem;
 }
 
+.github-projects-status {
+    margin-bottom: 1.5rem;
+}
+
+.repo-card {
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-height: 220px;
+}
+
+.repo-card h3 {
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+.repo-description {
+    font-size: 0.96rem;
+    margin-bottom: 0.2rem;
+}
+
+.repo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+}
+
+.repo-tag {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+}
+
 /* Contact Section */
 .contact-card {
     max-width: 600px;
@@ -623,15 +661,31 @@ body.light-theme .timeline-item h3 {
 
 /* Responsive */
 @media (max-width: 768px) {
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .nav-container { position: relative; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.9rem; }
+    .container { padding: 0 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-image {
+        max-width: 360px;
+        margin: 0 auto;
+        transform: none;
+    }
+    .about-image:hover {
+        transform: none;
+    }
+    .about-text h2 {
+        text-align: center;
+    }
+    .about-text p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+    .nav-container { position: relative; padding: 1rem 1.25rem; }
     .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
     .nav-links {
         display: none;
         position: absolute;
-        top: 78px;
+        top: 68px;
         right: 1rem;
         min-width: 210px;
         padding: 1rem;
@@ -643,10 +697,45 @@ body.light-theme .timeline-item h3 {
         gap: 0.9rem;
     }
     .nav-links.open { display: flex; }
-    section { padding: 6rem 0; }
+    .hero {
+        min-height: auto;
+        padding-top: 110px;
+        padding-bottom: 4rem;
+    }
+    .hero-content {
+        padding: 0 1.25rem;
+    }
+    .subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 1.7rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    section { padding: 5rem 0; }
     .stats { gap: 1.25rem; flex-direction: column; }
-    .contact-card { padding: 2rem 1.4rem; }
+    .timeline-item { padding: 1.4rem; }
+    .contact-card { padding: 1.8rem 1.2rem; }
     .section-intro { margin-top: -1.8rem; margin-bottom: 1.6rem; }
+    #ai-chat-container {
+        right: 16px;
+        bottom: 18px;
+        gap: 12px;
+    }
+    .chat-preview {
+        max-width: 220px;
+        font-size: 0.84rem;
+    }
+    #chat-window {
+        width: min(92vw, 380px);
+        height: min(70vh, 550px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -659,45 +748,62 @@ body.light-theme .timeline-item h3 {
 /* AI Chatbot Styles */
 #ai-chat-container {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 24px;
+    right: 24px;
     z-index: 2000;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 20px;
+    gap: 12px;
+}
+
+.chat-preview {
+    max-width: 240px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #2a2a2a;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 #chat-toggle {
-    width: 65px;
-    height: 65px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, background 0.3s ease;
-    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 28px rgba(59, 27, 84, 0.3);
+    transition: transform 0.2s ease, filter 0.2s ease;
     position: relative;
+    border: none;
+    background: radial-gradient(circle at 35% 30%, #fff0ff, #e6c8ff 35%, #d8abff 60%, #c78bff);
+}
+
+#chat-toggle::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    border: 2px solid rgba(109, 59, 165, 0.45);
+}
+
+.chat-toggle-text {
+    position: relative;
+    z-index: 1;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #6a339d;
+    letter-spacing: 0.03em;
 }
 
 #chat-toggle:hover {
-    transform: scale(1.1) rotate(5deg);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.chat-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: var(--ig-gradient);
-    font-size: 0.65rem;
-    font-weight: 800;
-    padding: 2px 6px;
-    border-radius: 10px;
-    color: white;
+    transform: scale(1.05);
+    filter: brightness(1.03);
 }
 
 #chat-window {
@@ -849,10 +955,43 @@ body.light-theme .timeline-item h3 {
 
 /* Mobile Adjustments for Chat */
 @media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+    .nav-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .logo { font-size: 1.25rem; }
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+    }
+    .btn {
+        padding: 0.85rem 1.15rem;
+    }
+    .timeline-item {
+        padding: 1.2rem;
+    }
+    .repo-card {
+        min-height: 0;
+    }
+    #ai-chat-container {
+        right: 10px;
+        left: 10px;
+        bottom: 12px;
+        align-items: stretch;
+    }
+    .chat-preview {
+        align-self: flex-end;
+        max-width: min(84vw, 240px);
+    }
+    #chat-toggle {
+        align-self: flex-end;
+    }
     #chat-window {
-        width: calc(100vw - 40px);
-        height: calc(100vh - 120px);
-        bottom: 80px;
-        right: 20px;
+        width: 100%;
+        height: min(72vh, 520px);
     }
 }
