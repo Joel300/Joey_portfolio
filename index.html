@@ -3,16 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Joel Dabankah Owusu's Professional Portfolio. Showcasing aesthetic and dynamic web designs.">
-    <!-- Content Security Policy -->
+    <meta name="description" content="Joel Dabankah Owusu — Finance operations specialist (SAP ERP) and software developer in Accra. 10+ years in accounting, React, and building tools that improve reporting and collections.">
+    <meta name="author" content="Joel Dabankah Owusu">
+    <link rel="canonical" href="https://joel300.github.io/Joey_portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Joel Dabankah Owusu | Finance & Software Portfolio">
+    <meta property="og:description" content="SAP ERP finance professional and React developer based in Accra, Ghana. Open to finance systems, FP&A, and frontend roles.">
+    <meta property="og:url" content="https://joel300.github.io/Joey_portfolio/">
+    <meta property="og:image" content="https://joel300.github.io/Joey_portfolio/images/joel-headshot.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Joel Dabankah Owusu | Finance & Software Portfolio">
+    <meta name="twitter:description" content="SAP ERP finance professional and React developer based in Accra, Ghana.">
+    <meta name="twitter:image" content="https://joel300.github.io/Joey_portfolio/images/joel-headshot.png">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io https://api.github.com;">
-    <title>Joel Dabankah Owusu | Professional Portfolio</title>
+    <title>Joel Dabankah Owusu | Finance & Software Portfolio</title>
+    <link rel="icon" href="images/joel-headshot.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260428">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=20260519">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Joel Dabankah Owusu",
+        "jobTitle": "Finance Officer & Software Developer",
+        "email": "Joelws300@gmail.com",
+        "telephone": "+233207544675",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Accra",
+            "addressCountry": "GH"
+        },
+        "url": "https://joel300.github.io/Joey_portfolio/",
+        "sameAs": [
+            "https://github.com/Joel300"
+        ],
+        "knowsAbout": ["SAP ERP", "Financial Reporting", "JavaScript", "React", "Account Reconciliation"]
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <header class="glass-nav">
         <div class="nav-container">
             <a href="#home" class="logo">Joel.</a>
@@ -20,6 +53,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#portfolio">Work</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -27,49 +61,60 @@
             </nav>
             <div class="nav-controls">
                 <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle light and dark mode" aria-pressed="false" title="Switch to light mode">🌙</button>
-                <button id="menu-toggle" class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
+                <button id="menu-toggle" class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation menu">☰</button>
             </div>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
+    <main id="main-content">
         <section id="home" class="hero section-reveal">
             <div class="hero-content">
                 <p class="kicker">Finance x Software x AI</p>
                 <h1>Hi, I'm <span class="highlight">Joel</span></h1>
-                <p class="subtitle">Accounting Professional & Software Developer based in Accra, Ghana.</p>
+                <p class="subtitle">Finance operations specialist (SAP ERP) building web tools with React—reduced receivables 45% while shipping production-ready interfaces.</p>
+                <p class="hero-availability">Open to Finance Systems, FP&amp;A, and Frontend Developer roles — Accra or remote.</p>
                 <div class="hero-actions">
                     <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Hire Me</a>
+                    <a href="resume.pdf" class="btn btn-outline" download>Download Resume</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+                <div class="hero-contact">
+                    <a href="mailto:Joelws300@gmail.com">Joelws300@gmail.com</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="tel:+233207544675">+233 20 754 4675</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="https://github.com/Joel300" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
-            <div class="hero-bg-shapes">
+            <div class="hero-bg-shapes" aria-hidden="true">
                 <div class="shape shape-1"></div>
                 <div class="shape shape-2"></div>
                 <div class="shape shape-3"></div>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="about section-reveal">
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image glass-card">
-                        <img src="images/joel-headshot.png" alt="Portrait of Joel Dabankah Owusu" class="avatar">
+                        <img src="images/joel-headshot.png" alt="Portrait of Joel Dabankah Owusu" class="avatar" width="480" height="480" loading="eager" decoding="async">
                     </div>
                     <div class="about-text">
                         <h2>About Me</h2>
                         <p class="section-intro">Blending financial discipline with modern product-building.</p>
-                        <p>I am a detail-oriented and result-driven professional combining a robust background in Finance and Accounting with modern Software Development skills (HTML, CSS, JavaScript & ReactJS). Based in Accra, Ghana, I bring an analytical, process-oriented mindset and technical problem-solving abilities to every project.</p>
+                        <p>I combine 10+ years in finance and accounting (SAP ERP, reconciliation, statutory reporting) with software development skills in HTML, CSS, JavaScript, and React. I focus on measurable outcomes—faster reporting, cleaner books, and tools teams actually use.</p>
                         <div class="stats">
                             <div class="stat-item">
                                 <h3 class="count-up" data-target="10" data-suffix="+">10+</h3>
                                 <span>Years Experience</span>
                             </div>
                             <div class="stat-item">
-                                <h3>AI / Dev / Finance</h3>
-                                <span>Core Expertise</span>
+                                <h3>45%</h3>
+                                <span>Debtors Reduced</span>
+                            </div>
+                            <div class="stat-item">
+                                <h3>SAP / React</h3>
+                                <span>Core Stack</span>
                             </div>
                         </div>
                     </div>
@@ -77,34 +122,82 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <section id="skills" class="skills section-reveal">
+            <div class="container">
+                <h2>Skills</h2>
+                <p class="section-intro section-center">What I bring to finance teams and product squads.</p>
+                <div class="skills-grid">
+                    <article class="skill-group glass-card">
+                        <h3>Finance &amp; Operations</h3>
+                        <ul class="skill-tags">
+                            <li>SAP ERP</li>
+                            <li>Accounts Payable / Receivable</li>
+                            <li>Bank Reconciliation</li>
+                            <li>Month-End Reporting</li>
+                            <li>VAT &amp; Withholding Tax</li>
+                            <li>Cash Flow Management</li>
+                        </ul>
+                    </article>
+                    <article class="skill-group glass-card">
+                        <h3>Software Development</h3>
+                        <ul class="skill-tags">
+                            <li>HTML &amp; CSS</li>
+                            <li>JavaScript</li>
+                            <li>React</li>
+                            <li>REST APIs</li>
+                            <li>Responsive UI</li>
+                            <li>Git &amp; GitHub</li>
+                        </ul>
+                    </article>
+                    <article class="skill-group glass-card">
+                        <h3>Professional Strengths</h3>
+                        <ul class="skill-tags">
+                            <li>Process Improvement</li>
+                            <li>Cross-Functional Collaboration</li>
+                            <li>Attention to Detail</li>
+                            <li>Microsoft Office</li>
+                            <li>AI Integration</li>
+                            <li>Prompt Engineering</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="experience" class="experience section-reveal">
             <div class="container">
-                <h2>Work History & Education</h2>
+                <h2>Work History &amp; Education</h2>
                 <p class="section-intro section-center">A journey across finance leadership and technical growth.</p>
                 <div class="timeline">
                     <div class="timeline-item glass-card">
                         <h3>Finance Officer</h3>
                         <p class="timeline-meta">Swissport Ghana Limited | 01/2018 - Present</p>
                         <ul>
-                            <li>Managed accounts payable/receivable, ensuring accurate financial operations using SAP ERP.</li>
-                            <li>Reduced company's debtors by 45% in 3 months through effective credit collection strategies.</li>
-                            <li>Reconciled 50+ customer accounts and assisted in month-end financial reporting.</li>
+                            <li>Managed accounts payable/receivable using SAP ERP for accurate financial operations.</li>
+                            <li>Reduced company's debtors by 45% in 3 months through credit collection and customer follow-up.</li>
+                            <li>Reconciled 50+ customer accounts and supported month-end and year-end reporting.</li>
                         </ul>
                     </div>
                     <div class="timeline-item glass-card">
                         <h3>Accounts Officer - Finance</h3>
                         <p class="timeline-meta">Ibis Styles Hotel Airport Accra | 12/2016 - 12/2017</p>
                         <ul>
-                            <li>Reconciled business accounts and assisted in managing cash flow to support efficient fund utilization.</li>
-                            <li>Retrieved 80% of Withholding tax certificates, reducing corporate tax liabilities.</li>
+                            <li>Reconciled business accounts and managed cash flow for efficient fund utilization.</li>
+                            <li>Retrieved 80% of withholding tax certificates, reducing corporate tax liabilities.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item glass-card">
+                        <h3>Customer Service &amp; Operations</h3>
+                        <p class="timeline-meta">Bayport Financial Services | 2016</p>
+                        <ul>
+                            <li>Supported customer operations and internal process coordination in a financial services environment.</li>
                         </ul>
                     </div>
                     <div class="timeline-item glass-card">
                         <h3>Software Development Certificate</h3>
                         <p class="timeline-meta">Codetrain Ghana | 10/2022</p>
                         <ul>
-                            <li>Specialized in Software Development, gaining proficiency in building frontend applications using HTML, CSS, JavaScript, and ReactJS.</li>
+                            <li>Built frontend applications with HTML, CSS, JavaScript, and ReactJS.</li>
                         </ul>
                     </div>
                     <div class="timeline-item glass-card">
@@ -115,31 +208,43 @@
             </div>
         </section>
 
-        <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio section-reveal">
             <div class="container">
-                <h2>GitHub Projects</h2>
-                <p class="section-intro section-center">Live repositories from my GitHub account.</p>
+                <h2>Featured Work</h2>
+                <p class="section-intro section-center">Selected projects with context, stack, and outcomes.</p>
+                <div class="portfolio-grid" id="featured-projects"></div>
+
+                <h2 class="portfolio-subheading">More on GitHub</h2>
+                <p class="section-intro section-center">Additional repositories from my GitHub profile.</p>
                 <p id="github-projects-status" class="github-projects-status section-center">Loading projects...</p>
                 <div class="portfolio-grid" id="github-projects" aria-live="polite"></div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="contact section-reveal">
             <div class="container glass-card contact-card">
                 <h2>Let's connect</h2>
-                <p>Have an exciting project in mind? Let's build something amazing together.</p>
+                <p>Interested in finance systems, operations, or frontend work? Send a message or reach out directly.</p>
+                <ul class="contact-direct">
+                    <li><a href="mailto:Joelws300@gmail.com">Joelws300@gmail.com</a></li>
+                    <li><a href="tel:+233207544675">+233 20 754 4675</a></li>
+                    <li><a href="resume.pdf" download>Download resume (PDF)</a></li>
+                </ul>
                 <form action="https://formspree.io/f/mrerwnpd" method="POST" class="contact-form" id="contact-form">
+                    <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="input-group">
+                        <label class="visually-hidden" for="name">Your Name</label>
                         <input type="text" name="name" id="name" required placeholder="Your Name">
                     </div>
                     <div class="input-group">
+                        <label class="visually-hidden" for="email">Your Email</label>
                         <input type="email" name="email" id="email" required placeholder="Your Email">
                     </div>
                     <div class="input-group">
+                        <label class="visually-hidden" for="message">Your Message</label>
                         <textarea name="message" id="message" rows="5" required placeholder="Your Message"></textarea>
                     </div>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
                     <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                 </form>
             </div>
@@ -147,38 +252,45 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container footer-inner">
             <p>&copy; 2026 Joel Dabankah Owusu. All rights reserved.</p>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="mailto:Joelws300@gmail.com">Email</a>
+                <a href="tel:+233207544675">Phone</a>
+                <a href="https://github.com/Joel300" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="resume.pdf" download>Resume</a>
+            </nav>
         </div>
     </footer>
 
-    <!-- AI Chatbot UI -->
     <div id="ai-chat-container">
         <div id="chat-preview" class="chat-preview" role="status" aria-live="polite">
-            Hi, I'm your AI Assistant 👋<br>
-            How may I help you today?
+            Questions about Joel?<br>
+            Tap below for quick answers.
         </div>
-        <button id="chat-toggle" aria-label="Toggle AI Chat" title="Chat with AI assistant">
-            <span class="chat-toggle-text">AI</span>
+        <button id="chat-toggle" type="button" aria-label="Open quick Q&amp;A" aria-expanded="false" aria-controls="chat-window" title="Ask about Joel's experience">
+            <span class="chat-toggle-text">?</span>
         </button>
-        <div id="chat-window" class="glass-card hidden">
+        <div id="chat-window" class="glass-card hidden" role="dialog" aria-labelledby="chat-dialog-title" aria-modal="true">
             <div class="chat-header">
-                <div class="ai-avatar">JO</div>
+                <div class="ai-avatar" aria-hidden="true">JO</div>
                 <div class="ai-info">
-                    <h3>Joel's AI Assistant</h3>
-                    <p>Ask about my experience</p>
+                    <h3 id="chat-dialog-title">Quick Q&amp;A</h3>
+                    <p>Keyword answers from Joel's resume</p>
                 </div>
-                <button id="chat-close" aria-label="Close Chat">&times;</button>
+                <button id="chat-close" type="button" aria-label="Close Q&amp;A">&times;</button>
             </div>
+            <div id="chat-prompts" class="chat-prompts" aria-label="Suggested questions"></div>
             <div id="chat-messages">
                 <div class="message ai">
-                    Hi! I'm Joel's AI assistant. How can I help you learn more about his background in Finance, Software Dev, or AI Integration?
+                    Hi! Ask about Joel's SAP finance work, React projects, education, or how to contact him.
                 </div>
             </div>
             <form id="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Type a message..." required autocomplete="off">
-                <button type="submit" id="chat-send">
-                    <svg viewBox="0 0 24 24" width="20" height="20">
+                <label class="visually-hidden" for="chat-input">Your question</label>
+                <input type="text" id="chat-input" placeholder="Type a question..." required autocomplete="off">
+                <button type="submit" id="chat-send" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
                         <path fill="currentColor" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
                     </svg>
                 </button>
@@ -186,7 +298,8 @@
         </div>
     </div>
 
-    <script src="js/app.js?v=20260429"></script>
-    <script src="js/chat.js"></script>
+    <script src="js/projects-data.js?v=20260519"></script>
+    <script src="js/app.js?v=20260519"></script>
+    <script src="js/chat.js?v=20260519"></script>
 </body>
 </html>

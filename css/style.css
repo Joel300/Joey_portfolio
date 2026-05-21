@@ -45,6 +45,34 @@ html {
     scroll-behavior: smooth;
 }
 
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 3000;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    background: var(--fb-blue);
+    color: #fff;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 body {
     font-family: var(--font-primary);
     background-color: var(--bg-color);
@@ -386,10 +414,45 @@ section:not(.hero)::before {
 .subtitle {
     font-size: 1.25rem;
     color: var(--text-muted);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     max-width: 680px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.hero-availability {
+    font-size: 0.95rem;
+    color: #d9e7ff;
+    margin-bottom: 1.8rem;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.light-theme .hero-availability {
+    color: #3a4675;
+}
+
+.hero-contact {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 0.75rem;
+    font-size: 0.92rem;
+}
+
+.hero-contact a {
+    color: var(--fb-blue-light);
+    font-weight: 600;
+}
+
+body.light-theme .hero-contact a {
+    color: var(--fb-blue-dark);
+}
+
+.hero-contact a:hover {
+    text-decoration: underline;
 }
 
 /* About Section */
@@ -429,7 +492,46 @@ section:not(.hero)::before {
 
 .stats {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.skill-group {
+    padding: 1.5rem;
+}
+
+.skill-group h3 {
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    color: var(--fb-blue-light);
+}
+
+body.light-theme .skill-group h3 {
+    color: #244ca4;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.skill-tags li {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .stat-item h3 {
@@ -514,6 +616,45 @@ section:not(.hero)::before {
     margin-bottom: 1rem;
 }
 
+.portfolio-subheading {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.featured-card .portfolio-img-wrapper {
+    padding-top: 56%;
+}
+
+.featured-card-body {
+    padding: 1.1rem 1.2rem 0.4rem;
+}
+
+.featured-card-body h3 {
+    margin-bottom: 0.6rem;
+    font-size: 1.25rem;
+}
+
+.featured-card-body p {
+    font-size: 0.9rem;
+    margin-bottom: 0.45rem;
+}
+
+.featured-card .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0 1.2rem 1.2rem;
+}
+
+.featured-card .project-actions .btn {
+    padding: 0.65rem 1.1rem;
+    font-size: 0.88rem;
+}
+
+.featured-card .repo-meta {
+    padding: 0 1.2rem 0.6rem;
+}
+
 .github-projects-status {
     margin-bottom: 1.5rem;
 }
@@ -565,7 +706,53 @@ section:not(.hero)::before {
 
 .contact-card p {
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.contact-direct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 1.2rem;
+    margin-bottom: 1.6rem;
+}
+
+.contact-direct a {
+    color: var(--fb-blue-light);
+    font-weight: 600;
+}
+
+body.light-theme .contact-direct a {
+    color: var(--fb-blue-dark);
+}
+
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.form-status {
+    min-height: 1.25rem;
+    font-size: 0.92rem;
+}
+
+.form-status--success {
+    color: #7dffb2;
+}
+
+.form-status--error {
+    color: #ff9f9f;
+}
+
+body.light-theme .form-status--success {
+    color: #0f7a42;
+}
+
+body.light-theme .form-status--error {
+    color: #b42318;
 }
 
 .contact-form {
@@ -596,10 +783,32 @@ section:not(.hero)::before {
 
 /* Footer */
 footer {
-    text-align: center;
     padding: 2rem 0;
     border-top: 1px solid var(--glass-border);
     color: var(--text-muted);
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    color: var(--text-color);
 }
 
 /* Timeline Section */
@@ -718,6 +927,20 @@ body.light-theme .timeline-item h3 {
         max-width: 320px;
         margin: 0 auto;
     }
+    .hero-contact {
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+    .hero-contact span[aria-hidden="true"] {
+        display: none;
+    }
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-links {
+        justify-content: center;
+    }
     section { padding: 5rem 0; }
     .stats { gap: 1.25rem; flex-direction: column; }
     .timeline-item { padding: 1.4rem; }
@@ -739,10 +962,30 @@ body.light-theme .timeline-item h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
+    html {
+        scroll-behavior: auto;
+    }
+
+    body::before,
+    body::after {
+        animation: none;
+    }
+
+    .section-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    #chat-window {
+        transition: none;
+    }
+
+    @keyframes messageIn {
+        from, to {
+            opacity: 1;
+            transform: none;
+        }
     }
 }
 /* AI Chatbot Styles */
@@ -866,6 +1109,28 @@ body.light-theme .timeline-item h3 {
 
 #chat-close:hover {
     color: white;
+}
+
+.chat-prompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding: 0.75rem 1rem 0;
+}
+
+.chat-prompt-btn {
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.chat-prompt-btn:hover {
+    color: var(--text-color);
+    border-color: rgba(24, 119, 242, 0.45);
 }
 
 #chat-messages {
